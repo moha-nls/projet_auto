@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="@localhost">
-  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.19">
+  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.20">
     <root id="1">
       <ServerVersion>10.4.13</ServerVersion>
       <DefaultEngine>MyISAM</DefaultEngine>
@@ -10,11 +10,11 @@
       <Current>1</Current>
       <Collation>latin1_swedish_ci</Collation>
     </schema>
-    <schema id="3" parent="1" name="information_schema">
-      <Collation>utf8_general_ci</Collation>
+    <schema id="3" parent="1" name="db_pizza">
+      <Collation>utf8mb4_general_ci</Collation>
     </schema>
-    <schema id="4" parent="1" name="m_location">
-      <Collation>latin1_swedish_ci</Collation>
+    <schema id="4" parent="1" name="information_schema">
+      <Collation>utf8_general_ci</Collation>
     </schema>
     <schema id="5" parent="1" name="mysql">
       <Collation>latin1_swedish_ci</Collation>
@@ -1032,10 +1032,10 @@
       <Charset>utf8mb4</Charset>
     </collation>
     <user id="330" parent="1" name="&apos;&apos;">
-      <Host>localhost</Host>
+      <Host>conenac-pc</Host>
     </user>
     <user id="331" parent="1" name="&apos;&apos;">
-      <Host>ordinateur-de-moha</Host>
+      <Host>localhost</Host>
     </user>
     <user id="332" parent="1" name="mariadb.sys">
       <Host>localhost</Host>
@@ -1047,12 +1047,12 @@
       <Host>::1</Host>
     </user>
     <user id="335" parent="1" name="root">
+      <Host>conenac-pc</Host>
+    </user>
+    <user id="336" parent="1" name="root">
       <Host>localhost</Host>
       <ObjectGrants>ALL PRIVILEGES!
 </ObjectGrants>
-    </user>
-    <user id="336" parent="1" name="root">
-      <Host>ordinateur-de-moha</Host>
     </user>
     <table id="337" parent="2" name="commentaire">
       <Engine>InnoDB</Engine>
