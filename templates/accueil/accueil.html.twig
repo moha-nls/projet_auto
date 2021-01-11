@@ -5,6 +5,13 @@
 {% block body %}
     {{ parent() }}
 <div class="example-wrapper">
-    <h1>{{ titre_section }}</h1>
+
+    <div class="banner" id="banner">
+        <div class="content text-center ">
+            <h1 class="text-danger text-center h1-banner">{{ titre_section }}</h1>
+            <a href="" class="btn btn-danger btn-banner mt-3 text-center">Prendre RDV</a>
+        </div>
+    </div>
+
 </div>
 {% endblock %}
