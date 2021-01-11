@@ -15,7 +15,10 @@
 <body>
 {% block body %}
     {{ include('partials/_navbar.html.twig') }}
+
+
 {% endblock %}
+{{ include('partials/footer.html.twig') }}
 {% block javascripts %}
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
