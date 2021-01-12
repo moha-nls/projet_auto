@@ -3,10 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use DateTime;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository", repositoryClass=UserRepository::class)
+ * @ORM\HasLifecycleCallbacks
  */
 class User
 {
@@ -33,7 +36,7 @@ class User
     private $email;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", length=10)
      */
     private $portable;
 
@@ -43,9 +46,9 @@ class User
     private $mdp;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="json")
      */
-    private $role;
+    private $role = [];
 
     /**
      * @ORM\Column(type="datetime")
@@ -122,9 +125,13 @@ class User
         return $this;
     }
 
-    public function getRole(): ?string
+    public function getRole(): array
     {
-        return $this->role;
+        $role = $this->role;
+        // donne le role "User" à tout les utilisateurs
+        $role[] = 'ROLE_USER';
+
+        return array_unique($role);
     }
 
     public function setRole(string $role): self
@@ -134,27 +141,35 @@ class User
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?DateTime
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    public function setCreatedAt(DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getUpdateAt(): ?\DateTimeInterface
+    public function getUpdateAt(): ?DateTimeInterface
     {
         return $this->updateAt;
     }
 
-    public function setUpdateAt(?\DateTimeInterface $updateAt): self
+    public function setUpdateAt(?DateTimeInterface $updateAt): self
     {
         $this->updateAt = $updateAt;
 
         return $this;
+    }
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function beforePersiste()
+    {
+        $this->createdAt = new DateTime();
     }
 }
