@@ -20,7 +20,7 @@ class Service
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nomServcie;
+    private $nomService;
 
     /**
      * @ORM\Column(type="float")
@@ -52,14 +52,14 @@ class Service
         return $this->id;
     }
 
-    public function getNomServcie(): ?string
+    public function getNomService(): ?string
     {
-        return $this->nomServcie;
+        return $this->nomService;
     }
 
-    public function setNomServcie(string $nomServcie): self
+    public function setNomService(string $nomService): self
     {
-        $this->nomServcie = $nomServcie;
+        $this->nomService = $nomService;
 
         return $this;
     }
