@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prise de rendez-vous{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+    <h1>{{ titre_section }}</h1>
+
+
+    <div class="container md">
+        <h2> quel est l'objet de votre rendez-vous </h2>
+
+
+        <div>
+            {{ form(form) }}
+        </div>
+
+        <div>
+        </div>
+
+    </div>
+{% endblock %}
