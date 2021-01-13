@@ -5,10 +5,15 @@ use App\Repository\UserRepository;
 use DateTime;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository", repositoryClass=UserRepository::class)
  * @ORM\HasLifecycleCallbacks
+ * @UniqueEntity(
+ *     fields={"email"},
+ *  message="cet utilisateur existe deja"
+ * )
  */
 class User
 {
@@ -47,7 +52,7 @@ class User
     /**
      * @ORM\Column(type="json")
      */
-    private $role = [];
+    private $roles = [];
 
     /**
      * @ORM\Column(type="datetime")
@@ -124,18 +129,18 @@ class User
         return $this;
     }
 
-    public function getRole(): array
+    public function getRoles(): array
     {
-        $role = $this->role;
+        $roles = $this->roles;
         // donne le role "User" à tout les utilisateurs
-        $role[] = 'ROLE_USER';
+        $roles[] = 'ROLE_USER';
 
-        return array_unique($role);
+        return array_unique($roles);
     }
 
-    public function setRole(string $role): self
+    public function setRoles(string $roles): self
     {
-        $this->role = $role;
+        $this->roles = $roles;
 
         return $this;
     }
@@ -170,5 +175,12 @@ class User
     public function beforePersiste()
     {
         $this->createdAt = new DateTime();
+    }
+    /**
+     * @ORM\PreUpdate()
+     */
+    public function beforeUpdate()
+    {
+        $this->updatedAt = new DateTime();
     }
 }
