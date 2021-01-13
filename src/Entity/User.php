@@ -166,10 +166,19 @@ class User
     }
 
     /**
-     * @ORM\PrePersist()
+     * @ORM\PrePersist
      */
-    public function beforePersiste()
+    public function beforePersist()
     {
         $this->createdAt = new DateTime();
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function beforeUpdate()
+    {
+
+        $this->updateAt = new DateTime();
     }
 }
