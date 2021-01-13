@@ -34,7 +34,7 @@ class DashboardController extends AbstractDashboardController
     {
         return $this->render("bundles/EasyAdminBundle/welcome.html.twig", [
                 'titre_page'=>$titrePage = 'Back Office',
-//               "nb_users"=> $nbUsers = count($this->userRepository->findAll()),
+               "nb_users"=> $nbUsers = count($this->userRepository->findAll()),
             ]
         );
     }

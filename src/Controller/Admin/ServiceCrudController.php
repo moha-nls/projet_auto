@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -32,7 +33,7 @@ class ServiceCrudController extends AbstractCrudController
         $panelService = FormField::addPanel('INFOS SERVICES');
         $id = IdField::new('id')->onlyOnIndex();
         $nomService = TextField::new('nom_service');
-        $prixService = TextField::new('prix_service');
+        $prixService = MoneyField::new('prix_service')->setCurrency('EUR');
         $descriptionService = TextEditorField::new('description_service');
         $dureeService = NumberField::new('duree_service')->onlyOnForms();
         $createdAt = DateTimeField::new('createdAt', 'Date de Creation')->onlyOnIndex();
