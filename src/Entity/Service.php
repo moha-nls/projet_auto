@@ -37,7 +37,7 @@ class Service
     private $descriptionService;
 
     /**
-     * @ORM\Column(type="time")
+     * @ORM\Column(type="string")
      */
     private $dureeService;
 
@@ -102,16 +102,20 @@ class Service
         return $this;
     }
 
-    public function getDureeService(): ?DateTimeInterface
+    /**
+     * @return mixed
+     */
+    public function getDureeService()
     {
         return $this->dureeService;
     }
 
-    public function setDureeService(DateTimeInterface $dureeService): self
+    /**
+     * @param mixed $dureeService
+     */
+    public function setDureeService($dureeService): void
     {
         $this->dureeService = $dureeService;
-
-        return $this;
     }
 
     public function getCreatedAt(): ?DateTimeInterface
