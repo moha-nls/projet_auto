@@ -5,19 +5,36 @@
 {% block body %}
     {{ parent() }}
 
-    <h1>{{ titre_section }}</h1>
 
-
-    <div class="container md">
-        <h2> quel est l'objet de votre rendez-vous </h2>
-
-
-        <div>
-            {{ form(form) }}
+    <div class="container">
+        {{ form_start(form) }}
+        <div class="my-custom-class-for-errors">
+            {{ form_errors(form) }}
         </div>
 
-        <div>
+        <div class="container-md">
+            <h2> quel est l'objet de votre rendez-vous </h2>
+            <div class="col-lg-10 col-md-8 col-sm-4">
+                {{ form_row(form.Service) }}
+            </div>
+            <div class="col-lg-10 col-md-8 col-sm-4" id="some-custom-id">
+                {{ form_row(form.dateRdv) }}
+            </div>
+            <div class="col-lg-10 col-md-8 col-sm-4" id="some-custom-id">
+                {{ form_row(form.heureRdv) }}
+            </div>
+            <div class="col-lg-10 col-md-8 col-sm-4" id="some-custom-id">
+                {{ form_row(form.immatriculation) }}
+            </div>
+            <div class="col-lg-10 col-md-8 col-sm-4" id="some-custom-id">
+                {{ form_row(form.carteGrise) }}
+            </div>
+            <div class="col-lg-10 col-md-8 col-sm-4" id="some-custom-id">
+                <h2>Prix RDV 10€</h2>
+            </div>
         </div>
-
+        {{ form_end(form) }}
     </div>
+
+
 {% endblock %}

@@ -148,6 +148,19 @@ class RendezVous
 
         return $this;
     }
+
+    public function getHeureRdv(): ?DateTimeInterface
+    {
+        return $this->heureRdv;
+    }
+
+    public function setHeureRdv(DateTimeInterface $heureRdv): self
+    {
+        $this->heureRdv = $heureRdv;
+
+        return $this;
+    }
+
     /**
      * @ORM\PrePersist
      */
@@ -164,17 +177,4 @@ class RendezVous
 
         $this->updateAt = new DateTime();
     }
-
-    public function getHeureRdv(): ?DateTimeInterface
-    {
-        return $this->heureRdv;
-    }
-
-    public function setHeureRdv(DateTimeInterface $heureRdv): self
-    {
-        $this->heureRdv = $heureRdv;
-
-        return $this;
-    }
-
 }
