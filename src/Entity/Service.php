@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=ServiceRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Service
 {
@@ -184,7 +185,6 @@ class Service
      */
     public function beforeUpdate()
     {
-
         $this->updateAt = new DateTime();
     }
     public function __toString()

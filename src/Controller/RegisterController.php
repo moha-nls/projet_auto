@@ -48,6 +48,8 @@ class RegisterController extends AbstractController
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();
+
+            return $this->redirectToRoute('app_rdv');
         }
 
         return $this->render('register/index.html.twig', [
@@ -55,4 +57,5 @@ class RegisterController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
 }
