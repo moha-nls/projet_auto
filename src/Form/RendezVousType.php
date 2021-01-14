@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\RendezVous;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\ChoiceList\Factory\Cache\ChoiceFieldName;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
@@ -15,16 +17,13 @@ class RendezVousType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Service',null, [
-                "label" => 'Choisir le type de Service',
-
-            ])
+            ->add('Service')
             ->add('dateRdv')
             ->add('heureRdv',TimeType::class, [
 
                 'hours' => range(9, 18),
             ])
-            ->add('dateRdv')
+
             ->add('immatriculation')
             ->add('carteGrise')
 

@@ -35,7 +35,7 @@ class ServiceCrudController extends AbstractCrudController
         $nomService = TextField::new('nom_service');
         $prixService = MoneyField::new('prix_service')->setCurrency('EUR');
         $descriptionService = TextEditorField::new('description_service');
-        $dureeService = NumberField::new('duree_service')->onlyOnForms();
+        $dureeService = TextField::new('duree_service')->onlyOnForms();
         $createdAt = DateTimeField::new('createdAt', 'Date de Creation')->onlyOnIndex();
         $updatedAt = DateTimeField::new('updatedAt', 'Date de Modification')->onlyOnIndex();
 
