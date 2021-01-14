@@ -30,7 +30,7 @@ class RendezVous
     private $dateRdv;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=15)
      */
     private $immatriculation;
 
