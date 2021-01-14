@@ -7,6 +7,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\ChoiceList\Factory\Cache\ChoiceFieldName;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
@@ -30,9 +32,13 @@ class RendezVousType extends AbstractType
 
             ->add('immatriculation')
 
+            ->add('prixRdv', HiddenType::class, [
+                'empty_data' => '10',
+            ])
+
+            ->add('createdAt', HiddenType::class)
+
             ->add('save', SubmitType::class, ['label' => 'Valider RDV'])
-
-
         ;
     }
 

@@ -27,10 +27,10 @@
                 {{ form_row(form.immatriculation) }}
             </div>
             <div class="col-lg-10 col-md-8 col-sm-4" id="some-custom-id">
-                {{ form_row(form.carteGrise) }}
-            </div>
-            <div class="col-lg-10 col-md-8 col-sm-4" id="some-custom-id">
                 <h2>Prix RDV 10€</h2>
+            </div>
+            <div type="hidden">
+                 {{ form_row(form.prixRdv) }}
             </div>
         </div>
         {{ form_end(form) }}
