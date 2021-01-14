@@ -20,16 +20,16 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-//        $faker = Factory::create('fr_FR');
-//
-//        for($i=0; $i < 5; $i++) {
-//            $user = new User();
-//            $user->setPrenom($faker->unique(true)->firstName);
-//            $user->setEmail($faker->unique(true)->email);
-//            $user->setPassword($this->passwordEncoder->encodePassword($user,"mdp123"));
-//            $user->setRoles(['ROLE_USER']);
-//            $manager->persist($user);
-//        }
+
+        $user = new User();
+        $user->setPrenom('Loenel');
+        $user->setNom('Rosales');
+        $user->setEmail('leonel@email.fr');
+        $user->setPassword($this->passwordEncoder->encodePassword($user,"mdp123"));
+        $user->setRoles(['ROLE_USER']);
+        $user->setCreatedAt(new DateTime());
+        $manager->persist($user);
+
         $admin = new User();
         $admin->setPrenom('Mohamed');
         $admin->setNom('Jemoui');
