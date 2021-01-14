@@ -55,6 +55,11 @@ class RendezVous
      */
     private $Service;
 
+    /**
+     * @ORM\Column(type="time")
+     */
+    private $heureRdv;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -158,6 +163,18 @@ class RendezVous
     {
 
         $this->updateAt = new DateTime();
+    }
+
+    public function getHeureRdv(): ?DateTimeInterface
+    {
+        return $this->heureRdv;
+    }
+
+    public function setHeureRdv(DateTimeInterface $heureRdv): self
+    {
+        $this->heureRdv = $heureRdv;
+
+        return $this;
     }
 
 }

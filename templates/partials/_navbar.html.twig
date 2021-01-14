@@ -9,15 +9,17 @@
             <ul class="navbar-nav">
                  {% if is_granted ('ROLE_ADMIN') %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('bo_accueil') }}">Tableau de bord</a>
+                        <a class="nav-link active" href="{{ path('bo_accueil') }}">Tableau de bord</a>
                     </li>
                  {% else %}
-
+                     <li class="nav-item">
+                         <a class="nav-link active" id="nav-link" href="{{ path('site_contact') }}"><i class="fas fa-id-badge"></i> Contact</a>
+                     </li>
                 {% endif %}
 
                 {% if is_granted ('ROLE_USER') %}
                     <li class="nav-item dropdown" id="settingAccount">
-                        <a class="nav-link dropdown-toggle" href="{{ path('account') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link active dropdown-toggle" href="{{ path('account') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-user-circle"></i> Mon Compte
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -29,10 +31,10 @@
 
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link text-center" href="#">Rendez-Vous</a>
+                        <a class="nav-link active text-center" href="#">Rendez-Vous</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+                        <a class="nav-link active" href="{{ path('app_login') }}"><i class="fas fa-sign-in-alt"></i> Connexion</a>
                     </li>
                 {% endif %}
             </ul>

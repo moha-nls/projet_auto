@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\RendezVous;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,8 +17,14 @@ class RendezVousType extends AbstractType
             ->add('Service')
             ->add('prixRdv')
             ->add('dateRdv')
+            ->add('heureRdv',TimeType::class, [
+
+                'hours' => range(9, 18),
+            ])
+            ->add('dateRdv')
             ->add('immatriculation')
             ->add('carteGrise')
+            ->add('save', SubmitType::class, ['label' => 'Valider RDV'])
 
 
         ;

@@ -23,5 +23,16 @@ class AccueilController extends AbstractController
             'titre_section' => 'Expert Auto'
         ]);
     }
+    /**
+     * @Route("/contact", name="contact")
+     */
+    public function contact()
+    {
+        return $this->render('accueil/contact.html.twig', [
+            'titre_page'=> $titrePage = "Contact",
+            'titre_section' => 'Contactez Nous',
+
+        ]);
+    }
 }
 

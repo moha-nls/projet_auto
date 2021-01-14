@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ titre_page }}{% endblock %}
+
+{% block body %}
+
+    {{ parent() }}
+    <div class="container titre text-center">
+        <h2 class="titreText"> Contactez Nous</h2>
+
+    </div>
+    <form class="container form d-flex">
+        <div class="contact-form col-6 my-auto">
+            <h3>Envoyer Message</h3>
+            <div class="form-group">
+                <label for="name"></label>
+                <input type="text" class="form-control" id="name" placeholder="Nom">
+            </div>
+            <div class="form-group">
+                <label for="email"></label>
+                <input type="email" class="form-control" id="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="message"></label>
+                <textarea class="form-control" id="message" placeholder="Message"></textarea>
+            </div>
+        </div>
+        <div class="form-img col-6 mt-2 mb-3">
+            <img src="{{ asset('images/bg3.jpg') }}" class="img-contact img-fluid" alt="contact-img" >
+        </div>
+    </form>
+
+{% endblock %}
