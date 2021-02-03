@@ -5,9 +5,12 @@
 {% block body %}
 {{ parent() }}
     <div class="container">
-        <h1>Demande de Prise de Rendez Vous</h1>
+        <h1>Inscription</h1>
+        <div>
+            {{ form(form) }}
+        </div>
 
-        {{ form(form) }}
+
     </div>
 
 {% endblock %}

@@ -32,9 +32,15 @@
             <div type="hidden">
                  {{ form_row(form.prixRdv) }}
             </div>
+
         </div>
         {{ form_end(form) }}
     </div>
 
 
+{% endblock %}
+{% block script %}
+    <script type="text/javascript">
+        document.getElementById("hidden-form").style.display = "none";
+    </script>
 {% endblock %}
