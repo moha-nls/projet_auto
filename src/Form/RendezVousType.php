@@ -3,12 +3,11 @@
 namespace App\Form;
 
 use App\Entity\RendezVous;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\ChoiceList\Factory\Cache\ChoiceFieldName;
+
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
@@ -22,15 +21,24 @@ class RendezVousType extends AbstractType
         $builder
             ->add('Service')
             ->add('dateRdv', DateType::class, [
-                'years' => range(2021,2031)
+                'widget' => 'single_text',
+                'years' => range(2021,2031),
+                "attr" => [
+                    'class' => 'js-datepicker',
+                ],
+                'label' => 'Date de Reservation :'
 
             ])
             ->add('heureRdv',TimeType::class, [
-
                 'hours' => range(9, 18),
+                'label' => 'Heure de Reservation :'
             ])
 
-            ->add('immatriculation')
+            ->add('immatriculation', TextType::class, [
+                "attr" => [
+                    "size" => 15,
+                ]
+            ])
 
             ->add('prixRdv', HiddenType::class, [
                 'empty_data' => '10',

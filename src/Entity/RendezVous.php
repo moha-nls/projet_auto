@@ -6,6 +6,7 @@ use App\Repository\RendezVousRepository;
 use DateTime;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=RendezVousRepository::class)
@@ -25,7 +26,8 @@ class RendezVous
     private $prixRdv;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
+     * @Assert\GreaterThan("today")
      */
     private $dateRdv;
 
